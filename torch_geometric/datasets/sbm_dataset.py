@@ -77,10 +77,10 @@ class StochasticBlockModelDataset(InMemoryDataset):
     @property
     def processed_file_names(self) -> str:
         block_sizes = self.block_sizes.view(-1).tolist()
-        hash1 = '-'.join([f'{x:.1f}' for x in block_sizes])
+        hash1 = '-'.join([f'{x}' for x in block_sizes])
 
         edge_probs = self.edge_probs.view(-1).tolist()
-        hash2 = '-'.join([f'{x:.1f}' for x in edge_probs])
+        hash2 = '-'.join([f'{x:.3f}' for x in edge_probs])
 
         return f'data_{self.num_channels}_{hash1}_{hash2}.pt'
 
