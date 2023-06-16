@@ -107,7 +107,7 @@ class StochasticBlockModelDataset(InMemoryDataset):
 
         y = torch.arange(num_classes).repeat_interleave(self.block_sizes)
 
-        data = Data(x=x, edge_index=edge_index, y=y)
+        data = Data(x=x, edge_index=edge_index, y=y, num_nodes=num_samples)
 
         if self.pre_transform is not None:
             data = self.pre_transform(data)
